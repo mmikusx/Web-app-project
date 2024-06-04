@@ -15,6 +15,7 @@
 - `GET /novels/popular` - displays a list of the most frequently chosen novels
 - `GET /novels/top-rated` - displays a list of the best-rated novels
 - `GET /novels/category/{category}` - searches for novels by category
+- 'GET /novels/search' - searches for novels by title or author
 - `POST /register` - registration of a new user
 - `POST /login` - user login
 
@@ -52,6 +53,7 @@
 - `popular` - retrieves a list of the most frequently chosen novels
 - `topRated` - retrieves a list of the best-rated novels
 - `searchByCategory` - searches for novels by category
+- `search` - searches for novels by title or author
 
 ### UserController
 - `register` - registration of a new user
@@ -75,6 +77,7 @@
 - `getPopularNovels` - returns a list of the most frequently chosen novels
 - `getTopRatedNovels` - returns a list of the best-rated novels
 - `getNovelsByCategory` - searches for novels by category
+- `searchNovels` - searches for novels by title or author
 
 ### UserService
 - `registerUser` - registers a new user
