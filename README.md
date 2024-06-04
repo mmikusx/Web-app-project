@@ -7,7 +7,6 @@
 4. [Services](#services)
 
 ## Routes
-
 - `GET /novels` - displays a list of all novels
 - `GET /novels/{id}` - displays details of the selected novel
 - `POST /novels` - creates a new novel
@@ -15,6 +14,7 @@
 - `DELETE /novels/{id}` - deletes the novel
 - `GET /novels/popular` - displays a list of the most frequently chosen novels
 - `GET /novels/top-rated` - displays a list of the best-rated novels
+- `GET /novels/category/{category}` - searches for novels by category
 - `POST /register` - registration of a new user
 - `POST /login` - user login
 
@@ -25,6 +25,7 @@
 - `title` (string)
 - `author` (string)
 - `description` (text)
+- `category` (string)
 - `chapters` (array of `Chapter`)
 - `popularity` (integer)
 - `rating` (float)
@@ -50,6 +51,7 @@
 - `destroy` - deletes the novel
 - `popular` - retrieves a list of the most frequently chosen novels
 - `topRated` - retrieves a list of the best-rated novels
+- `searchByCategory` - searches for novels by category
 
 ### UserController
 - `register` - registration of a new user
@@ -72,6 +74,7 @@
 - `deleteNovel` - deletes the novel
 - `getPopularNovels` - returns a list of the most frequently chosen novels
 - `getTopRatedNovels` - returns a list of the best-rated novels
+- `getNovelsByCategory` - searches for novels by category
 
 ### UserService
 - `registerUser` - registers a new user
