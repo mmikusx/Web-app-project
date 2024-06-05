@@ -1,7 +1,7 @@
-curl -X POST http://localhost:5000/register \
+curl -X POST http://localhost:3000/register \
     -H "Content-Type: application/json" \
     -d '{"username":"exampleUser", "password":"examplePassword"}' && echo
 
-curl -X POST http://localhost:5000/login \
+curl -X POST http://localhost:3000/login \
     -H "Content-Type: application/json" \
     -d '{"username":"exampleUser", "password":"examplePassword"}' && echo
