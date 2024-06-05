@@ -7,6 +7,6 @@ const app = express();
 app.use(express.json());
 app.use(userRoutes);
 
-mongoose.connect('mongodb://localhost:2717/otx_db', { useNewUrlParser: true, useUnifiedTopology: true });
-
-app.listen(3000, () => console.log('Server started on port 3000'));
+mongoose.connect('mongodb://root:example@localhost:27017/')
+    .then(() => app.listen(5000, () => console.log('Server running on port 5000')))
+    .catch(err => console.error(err));

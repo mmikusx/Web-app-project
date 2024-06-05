@@ -2,13 +2,25 @@ const UserService = require('../Services/UserServices');
 
 exports.register = async (req, res) => {
     const { username, password } = req.body;
-    const user = await UserService.registerUser(username, password);
-    res.send(user);
+    if (!username || !password) {
+        res.status(400).send('Username or password not provided');
+    }
+    const status = await UserService.registerUser(username, password);
+    if (status !== 0) {
+        res.status(400).send('User already exists');
+    }
+    res.send('User successfully registered');
 };
 
 exports.login = async (req, res) => {
     const { username, password } = req.body;
+    if (!username || !password) {
+        res.status(400).send('All fields are required');
+    }
     const token = await UserService.loginUser(username, password);
+    if (token === null) {
+        res.status(400).send('Invalid username or password');
+    }
     res.send({ token });
 };
 
