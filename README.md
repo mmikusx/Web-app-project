@@ -15,9 +15,10 @@
 - `GET /novels/popular` - displays a list of the most frequently chosen novels
 - `GET /novels/top-rated` - displays a list of the best-rated novels
 - `GET /novels/category/{category}` - searches for novels by category
-- 'GET /novels/search' - searches for novels by title or author
+- `GET /novels/search` - searches for novels by title or author
 - `POST /register` - registration of a new user
 - `POST /login` - user login
+- `GET /user/{id}/novels` - displays a list of novels uploaded by the user
 
 ## Models
 
@@ -41,6 +42,7 @@
 - `id` (integer)
 - `username` (string)
 - `password` (string)
+- `novels` (array of `Novel`) - novels uploaded by the user
 
 ## Controllers
 
@@ -58,6 +60,7 @@
 ### UserController
 - `register` - registration of a new user
 - `login` - user login
+- `userNovels` - retrieves a list of novels uploaded by the user
 
 ### ChapterController
 - `index` - retrieves a list of chapters for a given novel
@@ -82,6 +85,7 @@
 ### UserService
 - `registerUser` - registers a new user
 - `loginUser` - logs in a user
+- `getUserNovels` - returns a list of novels uploaded by the user
 
 ### ChapterService
 - `getChaptersByNovelId` - returns a list of chapters for a given novel
