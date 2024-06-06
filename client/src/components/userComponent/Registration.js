@@ -1,13 +1,27 @@
 import React,  {useState} from "react";
+import axios from "axios";
 import '../../stylesheets/Registration.css';
 
 function Registration() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState("");
 
-    const handleRegistration = () => {
-        console.log("Registering user with username:", username, "password:", password);
+    const handleRegistration = async () => {
+        if (password !== confirmPassword) {
+            setError("Passwords do not match");
+            alert("Passwords do not match");
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:3000/register', {username, password});
+            console.log("Registration successful");
+        } catch (error) {
+            setError(error.response?.data || "An error occurred during registration");
+            alert(error.response?.data || "An error occurred during registration");
+        }
     };
 
     return (
