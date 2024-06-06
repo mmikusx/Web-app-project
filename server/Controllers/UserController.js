@@ -15,11 +15,11 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) {
-        res.status(400).send('All fields are required');
+        return res.status(400).send('All fields are required');
     }
     const token = await UserService.loginUser(username, password);
     if (token === null) {
-        res.status(400).send('Invalid username or password');
+        return res.status(400).send('Invalid username or password');
     }
     res.send({ token });
 };
