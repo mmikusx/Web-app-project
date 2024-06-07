@@ -1,17 +1,17 @@
+import '../stylesheets/Navbar.css';
 import React, { useState } from "react";
-
 import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
 
   return (
-    <nav>
-      <ul >
-        <li>
-          <NavLink to="/login">Login</NavLink>
+    <nav className="navbar">
+      <ul className="navbar-list">
+        <li className="navbar-item">
+          <NavLink className="navbar-link" to="/login">Login</NavLink>
         </li>
-        <li>
-          <NavLink to="/register">Register</NavLink>
+        <li className="navbar-item">
+          <NavLink className="navbar-link" to="/register">Register</NavLink>
         </li>
       </ul>
     </nav>

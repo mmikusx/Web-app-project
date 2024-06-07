@@ -25,27 +25,29 @@ function Registration() {
     };
 
     return (
-        <div className="registerForm">
-            <h2>Register</h2>
-            <input
-                type="text"
-                name="username"
-                placeholder="Enter your username"
-                onChange={e => setUsername(e.target.value)}
-            />
-            <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                onChange={e => setPassword(e.target.value)}
-            />
-            <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm your password"
-                onChange={e => setConfirmPassword(e.target.value)}
-            />
-            <button className="register-button" onClick={handleRegistration}>Register</button>
+        <div className="main-container">
+            <div className="registerForm">
+                <h2>Register</h2>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    onChange={e => setUsername(e.target.value)}
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    onChange={e => setPassword(e.target.value)}
+                />
+                <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm your password"
+                    onChange={e => setConfirmPassword(e.target.value)}
+                />
+                <button className="register-button" onClick={handleRegistration}>Register</button>
+            </div>
         </div>
     );
 };

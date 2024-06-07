@@ -13,28 +13,30 @@ function Login() {
             console.log("Login successful");
             localStorage.setItem('token', response.data.token);
         } catch (error) {
+            console.log("Error: ", error);
             setError(error.response?.data || "An error occurred during login");
             alert(error.response?.data || "An error occurred during login");
         }
     };
 
     return (
-        <div className="loginForm">
-            <h2>Login</h2>
-            <input
-                type="text"
-                name="username"
-                placeholder="Enter your username"
-                onChange={e => setUsername(e.target.value)}
-            />
-            <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                onChange={e => setPassword(e.target.value)}
-            />
-            <button className="login-button" onClick={handleLogin}>Log In</button>
-
+        <div className="main-container">
+            <div className="loginForm">
+                <h2>Login</h2>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    onChange={e => setUsername(e.target.value)}
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    onChange={e => setPassword(e.target.value)}
+                />
+                <button className="login-button" onClick={handleLogin}>Log In</button>
+            </div>
         </div>
     );
 };
