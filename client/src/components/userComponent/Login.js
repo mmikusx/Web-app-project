@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import '../../stylesheets/Login.css';
 
-function Login() {
+function Login({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -11,7 +11,7 @@ function Login() {
         try {
             const response = await axios.post('http://localhost:3000/login', {username, password});
             console.log("Login successful");
-            localStorage.setItem('token', response.data.token);
+            onLogin(response.data.token);
         } catch (error) {
             console.log("Error: ", error);
             setError(error.response?.data || "An error occurred during login");
