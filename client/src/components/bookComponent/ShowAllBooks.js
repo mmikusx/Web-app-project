@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import '../../stylesheets/Books.css';
 
@@ -27,11 +28,11 @@ function Books() {
             <ul className="books-list">
                 {books.map(book => (
                     <li key={book._id} className="book-item">
-                        <h3>{book.title}</h3>
+                        <h3>
+                            <Link to={`/books/${book._id}`}>{book.title}</Link>
+                        </h3>
                         <p><strong>Author:</strong>{book.author}</p>
-                        <p><strong>Description:</strong>{book.description}</p>
                         <p><strong>Categories:</strong>{book.categories.join(", ")}</p>
-                        <p><strong>Visits:</strong>{book.visits}</p>
                     </li>
                 ))}
             </ul>

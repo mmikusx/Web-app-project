@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Login from './components/userComponent/Login'
 import Registration from './components/userComponent/Registration';
 import Books from './components/bookComponent/ShowAllBooks';
+import Book from './components/bookComponent/ShowBookById';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
         <Routes>
           <Route path="/books" element={<Books />} />
+          <Route path="/books/:id" element={<Book />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/register" element={<Registration />} />
         </Routes>
