@@ -6,6 +6,7 @@ import Login from './components/userComponent/Login'
 import Registration from './components/userComponent/Registration';
 import Books from './components/bookComponent/ShowAllBooks';
 import Book from './components/bookComponent/ShowBookById';
+import BooksByCategory from './components/bookComponent/ShowBooksByCategory';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/books" element={<Books />} />
           <Route path="/books/:id" element={<Book />} />
+          <Route path="/books/category/:category" element={<BooksByCategory />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/register" element={<Registration />} />
         </Routes>
