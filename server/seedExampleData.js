@@ -24,10 +24,16 @@ for (let i = 0; i < 50; i++) {
     bookIds.push(bookId);
     chapterIds.push(chapterId);
 
+    const userBooks = [];
+    for (let j = 0; j < Math.floor(Math.random() * 10); j++) {
+        userBooks.push(bookIds[Math.floor(Math.random() * bookIds.length)]);
+    }
+
     userData.push({
         _id: userId,
         username: `User ${i}`,
         password: `Password ${i}`,
+        books: userBooks,
         // Add other user fields as needed
     });
 
