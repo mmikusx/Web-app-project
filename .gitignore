@@ -1,6 +1,3 @@
-
-.idea/Web-app-project.iml
-.idea/vcs.xml
-.idea/modules.xml
+.idea
 mongodata/
 /server/node_modules

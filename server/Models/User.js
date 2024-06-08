@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
     username: String,
     password: String,
-    // novels: [NovelSchema] // Odkomentuj to, gdy model Novel będzie dostępny
+    books: [{ type: Schema.Types.ObjectId, ref: 'Book' }] // Reference to Book model
 });
 
 module.exports = mongoose.model('User', UserSchema);
