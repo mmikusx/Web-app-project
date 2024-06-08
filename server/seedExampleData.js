@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Book = require('./models/Book');
-const User = require('./models/User');
+const User = require('./Models/User');
 const Comment = require('./models/Comment');
 const Chapter = require('./models/Chapter');
 
@@ -31,8 +31,8 @@ for (let i = 0; i < 50; i++) {
 
     userData.push({
         _id: userId,
-        username: `User ${i}`,
-        password: `Password ${i}`,
+        username: `User${i}`,
+        password: `Password${i}`,
         books: userBooks,
         // Add other user fields as needed
     });

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar'
 import Login from './components/userComponent/Login'
 import Registration from './components/userComponent/Registration';
+import Books from './components/bookComponent/ShowAllBooks';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <div className="App">
         <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
         <Routes>
+          <Route path="/books" element={<Books />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/register" element={<Registration />} />
         </Routes>

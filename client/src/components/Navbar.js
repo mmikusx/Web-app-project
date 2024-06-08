@@ -7,6 +7,9 @@ function Navbar({ isLoggedIn, handleLogout }) {
   return (
     <nav className="navbar">
       <ul className="navbar-list">
+        <li className="navbar-item">
+          <NavLink className="navbar-link" to="/books">Books</NavLink>
+        </li>
         {!isLoggedIn && (
           <>
           <li className="navbar-item">
