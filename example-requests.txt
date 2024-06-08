@@ -10,11 +10,12 @@ curl -X POST http://localhost:3000/login \
     -H "Content-Type: application/json" \
     -d '{"username":"exampleUser", "password":"examplePassword"}' && echo
 
+curl -X POST -H "Content-Type: application/json" -d '{"title":"New Book 3", "author":"Author Name 3", "description":"Book Description 3", "categories":["Category1", "Category3"], "visits":33, "uploaded_by":"6661928a2ddaeee1e345870a", "cover_image":"Cover Image URL 3"}' http://localhost:3000/books
+
 curl -X GET http://localhost:3000/books
 
 curl -X GET http://localhost:3000/books/666399a3f060c7612f3c0ead
 
-curl -X POST -H "Content-Type: application/json" -d '{"title":"New Book 3", "author":"Author Name 3", "description":"Book Description 3", "categories":["Category1", "Category3"], "visits":33, "uploaded_by":"6661928a2ddaeee1e345870a", "cover_image":"Cover Image URL 3"}' http://localhost:3000/books
 
 curl -X PUT -H "Content-Type: application/json" -d '{"title":"Updated Book", "author":"Updated Author", "descriptio
 n":"Updated Description", "categories":["Updated Category1", "Updated Category2"], "visits":0, "uploaded_by":"6661928a2ddaeee1e345870a", "cover_image":"Updated Cover Image URL"}' http://localhost:3000/books/666399a3f060c7612f3c0ead
