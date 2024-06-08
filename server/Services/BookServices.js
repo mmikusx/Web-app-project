@@ -37,3 +37,7 @@ exports.searchBooks = async (titleOrAuthor) => {
         ]
     });
 };
+
+exports.getBooksByUserId = async (userId) => {
+    return await Book.find({ uploaded_by: userId });
+}

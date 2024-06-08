@@ -51,3 +51,8 @@ exports.search = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+exports.userBooks = async (req, res) => {
+    const books = await BookServices.getBooksByUserId(req.params.id);
+    return res.json(books);
+}
