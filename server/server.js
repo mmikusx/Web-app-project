@@ -4,6 +4,7 @@ const cors = require('cors');
 const userRoutes = require('./Routes/UserRoutes');
 const bookRoutes = require('./Routes/BookRoutes');
 const chapterRoutes = require('./Routes/ChapterRoutes');
+const commentRoutes = require('./Routes/CommentRoutes');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(userRoutes);
 app.use(bookRoutes);
 app.use(chapterRoutes);
+app.use(commentRoutes);
 
 mongoose.connect('mongodb://root:example@localhost:27017/')
     .then(() => app.listen(3000, () => console.log('Server running on port 3000')))
