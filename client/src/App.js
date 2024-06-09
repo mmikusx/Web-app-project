@@ -9,14 +9,17 @@ import Book from './components/bookComponent/ShowBookById';
 import BooksByCategory from './components/bookComponent/ShowBooksByCategory';
 import Chapter from './components/chapterComponent/ShowChapter';
 import ChaptersList from './components/chapterComponent/ChapterList';
+import UserBooks from './components/bookComponent/ShowUserBooks';
+
 
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+  const [userId, setUserId] = useState(localStorage.getItem('userId'));
 
-  const handleLogin = (token) => {
-    localStorage.setItem('token', token);
+  const handleLogin = (token, userId) => {
     setIsLoggedIn(true);
+    setUserId(userId);
   };
 
   const handleLogout = () => {
@@ -28,7 +31,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+        <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} userId={userId} />
         <Routes>
           <Route path="/books" element={<Books />} />
           <Route path="/books/:id" element={<Book />} />
@@ -37,6 +40,7 @@ function App() {
           <Route path="/register" element={<Registration />} />
           <Route path="/books/:bookId/:chapterId" element={<Chapter />} />
           <Route path="/books/:id/chapters" element={<ChaptersList />} />
+          {isLoggedIn && <Route path={`/user/${userId}/books`} element={<UserBooks userId={userId} />} />}
         </Routes>
       </div>
     </Router>
