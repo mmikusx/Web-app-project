@@ -24,7 +24,7 @@ exports.loginUser = async (username, password) => {
     return {token, userId: user._id};
 };
 
-exports.getUserNovels = async (id) => {
-    // Tutaj powinien być kod do pobrania powieści użytkownika
-    // return User.findById(id).populate('novels');
+exports.getUserBooks = async (id) => {
+    const books = await User.findById(id, { 'books': 1 });
+    return books;
 };

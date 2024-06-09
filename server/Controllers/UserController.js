@@ -24,8 +24,7 @@ exports.login = async (req, res) => {
     res.send(result);
 };
 
-exports.userNovels = async (req, res) => {
-    const { id } = req.params;
-    const novels = await UserService.getUserNovels(id);
-    res.send(novels);
+exports.userBooks = async (req, res) => { 
+    const books = await UserService.getUserBooks(req.params.id);
+    res.send(books);
 };

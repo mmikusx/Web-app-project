@@ -25,6 +25,7 @@ function App() {
   const handleLogout = () => {
     console.log("Logging out");
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
     setIsLoggedIn(false);
   };
 

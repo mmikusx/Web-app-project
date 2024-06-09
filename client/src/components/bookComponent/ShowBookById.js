@@ -44,6 +44,7 @@ function Book() {
                     <p><strong>Visits:</strong>{book.visits}</p>
                     <p><strong>Reviews:</strong> {book.total_reviews}</p>
                     <p><strong>Rating:</strong> {book.average_rating}</p>
+                    <p><strong>Chapter Number:</strong> {book.chapterNumber}</p>
                 </div>
                 <div className="book-detail-image">
                     <img src={book.cover_img_ref} alt={book.title} />

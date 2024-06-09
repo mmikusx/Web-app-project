@@ -6,8 +6,12 @@ const CommentSection = ({ chapterId }) => {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const [error, setError] = useState("");
+    const [userId, setUserId] = useState(null);
 
     useEffect(() => {
+        const userId = localStorage.getItem("userId");
+        setUserId(userId);
+
         const fetchComments = async () => {
             try {
                 const response = await axios.get(`http://localhost:3000/chapters/${chapterId}/comments`);
@@ -29,7 +33,7 @@ const CommentSection = ({ chapterId }) => {
         try {
             const response = await axios.post('http://localhost:3000/comments', {
                 chapter_id: chapterId,
-                user_id: '6665d9a9c004d44e0162348c', // replace with actual user ID
+                user_id: userId, // use actual user ID from localStorage
                 content: newComment
             });
             setComments((prevComments) => [...prevComments, response.data]);
@@ -38,6 +42,14 @@ const CommentSection = ({ chapterId }) => {
             alert(error.response?.data || "An error occurred while submitting your comment");
         }
     };
+
+    if (!userId) {
+        return (
+            <div className="login-prompt">
+                <p>You need to be logged in to comment. <a href="/login">Log in</a></p>
+            </div>
+        );
+    }
 
     if (error) {
         return <div>{error}</div>;
@@ -50,7 +62,7 @@ const CommentSection = ({ chapterId }) => {
                 {comments.map((comment) => (
                     <li key={comment._id} className="comment-item">
                         <p>{comment.content}</p>
-                        <p><strong>Author:</strong>{comment.author}</p>
+                        <p><strong>Author:</strong> {comment.user_id}</p>
                     </li>
                 ))}
             </ul>
