@@ -1,4 +1,4 @@
-const CommentServices = require('../services/CommentServices');
+const CommentServices = require('../Services/CommentServices');
 
 exports.comments = async (req, res) => {
     const comments = await CommentServices.getCommentsByChapterId(req.params.chapterId);

@@ -1,4 +1,4 @@
-const ChapterServices = require('../services/ChapterServices');
+const ChapterServices = require('../Services/ChapterServices');
 
 exports.chapters = async (req, res) => {
     const chapters = await ChapterServices.getChaptersByBookId(req.params.bookId);

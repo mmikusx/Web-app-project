@@ -1,4 +1,4 @@
-const Comment = require('../models/Comment');
+const Comment = require('../Models/Comment');
 
 exports.getCommentsByChapterId = async (chapterId) => {
     return await Comment.find({ chapter_id: chapterId });

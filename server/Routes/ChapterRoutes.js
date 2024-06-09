@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ChapterController = require('../controllers/ChapterController');
+const ChapterController = require('../Controllers/ChapterController');
 
 router.get('/books/:bookId/chapters', ChapterController.chapters);
 router.get('/chapters/:id', ChapterController.show_chapter);

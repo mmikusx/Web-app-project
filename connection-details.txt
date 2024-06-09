@@ -1,1 +1,2 @@
-mongodb://root:supertajnehas%C5%82oniedozgadni%C4%99cia@172.104.249.16:27017/?tlsInsecure=true
+mongodb://root:supertajnehas%C5%82oniedozgadni%C4%99cia@172.104.249.16:27017/book_database?authSource=admin
+mongodb://root:supertajnehas%C5%82oniedozgadni%C4%99cia@172.104.249.16:27017/
