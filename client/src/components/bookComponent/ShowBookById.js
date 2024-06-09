@@ -47,7 +47,7 @@ function Book() {
                     <p><strong>Chapter Number:</strong> {book.chapterNumber}</p>
                 </div>
                 <div className="book-detail-image">
-                    <img src={book.cover_img_ref} alt={book.title} />
+                    <img src={require("/public/img-global/" + book.title + ".jpg")} alt={book.title} />
                 </div>
             </div>
             <div className="chapters-button-container">
