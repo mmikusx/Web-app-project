@@ -11,7 +11,9 @@ function Login({ onLogin }) {
         try {
             const response = await axios.post('http://localhost:3000/login', {username, password});
             console.log("Login successful");
-            onLogin(response.data.token);
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('userId', response.data.userId);
+            onLogin(response.data.token, response.data.userId);
         } catch (error) {
             console.log("Error: ", error);
             setError(error.response?.data || "An error occurred during login");

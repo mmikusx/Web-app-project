@@ -17,11 +17,11 @@ exports.login = async (req, res) => {
     if (!username || !password) {
         return res.status(400).send('All fields are required');
     }
-    const token = await UserService.loginUser(username, password);
-    if (token === null) {
+    const result = await UserService.loginUser(username, password);
+    if (result === null) {
         return res.status(400).send('Invalid username or password');
     }
-    res.send({ token });
+    res.send(result);
 };
 
 exports.userNovels = async (req, res) => {

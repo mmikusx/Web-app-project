@@ -21,7 +21,7 @@ exports.loginUser = async (username, password) => {
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) return null;
     const token = jwt.sign({ _id: user._id }, 'SECRET_KEY');
-    return token;
+    return {token, userId: user._id};
 };
 
 exports.getUserNovels = async (id) => {
