@@ -9,7 +9,7 @@ const Schema = mongoose.Schema;
     visits: Number,
     uploaded_by: { type: Schema.Types.ObjectId, ref: 'User' },
     cover_image: String, // URL do obrazka w folderze
-    // chapters: [{ type: Schema.Types.ObjectId, ref: 'Chapter' }]
+    chapterNumber: Number,
 });
 
 module.exports = mongoose.model('Book', BookSchema);

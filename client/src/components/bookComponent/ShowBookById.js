@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import '../../stylesheets/BookById.css';
 
@@ -14,7 +14,6 @@ function Book() {
             try {
                 const response = await axios.get(`http://localhost:3000/books/${id}`);
                 setBook(response.data);
-                console.log("Book fetched successfully");
                 setLoading(false);
             } catch (error) {
                 setError(error.response?.data || "An error occurred during fetching book");
@@ -30,17 +29,33 @@ function Book() {
         return <div>Loading...</div>;
     }
 
+    if (error) {
+        return <div>{error}</div>;
+    }
+
     return (
-        <div className="book-detail-container">
-            <div className="book-detail-content">
-                <h3>{book.title}</h3>
-                <p><strong>Author:</strong>{book.author}</p>
-                <p><strong>Description:</strong>{book.description}</p>
-                <p><strong>Categories:</strong>{book.categories.join(", ")}</p>
-                <p><strong>Visits:</strong>{book.visits}</p>
+        <div className="book-container">
+            <div className="book-detail-container">
+                <div className="book-detail-content">
+                    <h3>{book.title}</h3>
+                    <p><strong>Author:</strong>{book.author}</p>
+                    <p><strong>Description:</strong>{book.description}</p>
+                    <p><strong>Categories:</strong>{book.categories.join(", ")}</p>
+                    <p><strong>Visits:</strong>{book.visits}</p>
+                    <p><strong>Reviews:</strong> {book.total_reviews}</p>
+                    <p><strong>Rating:</strong> {book.average_rating}</p>
+                </div>
+                <div className="book-detail-image">
+                    <img src={book.cover_img_ref} alt={book.title} />
+                </div>
+            </div>
+            <div className="chapters-button-container">
+                <Link to={`/books/${book._id}/chapters`}>
+                    <button>View Chapters</button>
+                </Link>
             </div>
         </div>
     );
-};
+}
 
 export default Book;
