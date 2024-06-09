@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import '../../stylesheets/Books.css';
+import CategoryFilter from "./CategoryFilter";
 
 function Books() {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState("");
-
+    const filterRef = useRef();
+    
     useEffect(() => {
         const fetchBooks = async () => {
             try {
@@ -25,6 +27,7 @@ function Books() {
     return (
         <div className="books-container">
             <h1>Books</h1>
+            <CategoryFilter ref={filterRef} />
             <ul className="books-list">
                 {books.map(book => (
                     <li key={book._id} className="book-item">

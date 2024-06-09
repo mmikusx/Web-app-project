@@ -15,6 +15,6 @@ app.use(bookRoutes);
 app.use(chapterRoutes);
 app.use(commentRoutes);
 
-mongoose.connect('mongodb://root:example@localhost:27017/')
+mongoose.connect('mongodb://root:supertajnehas%C5%82oniedozgadni%C4%99cia@172.104.249.16:27017/?tlsInsecure=true')
     .then(() => app.listen(3000, () => console.log('Server running on port 3000')))
     .catch(err => console.error(err));
