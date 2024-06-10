@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import '../../stylesheets/BookById.css';
+import CommentSection from "../commentComponent/commentSection";
 
 function Book() {
     const { id } = useParams();
@@ -13,6 +14,7 @@ function Book() {
         const fetchBook = async () => {
             try {
                 const response = await axios.get(`http://localhost:3000/books/${id}`);
+                console.log(response.data);
                 setBook(response.data);
                 setLoading(false);
             } catch (error) {
@@ -55,6 +57,7 @@ function Book() {
                     <button>View Chapters</button>
                 </Link>
             </div>
+            <CommentSection bookId={book._id} />
         </div>
     );
 }

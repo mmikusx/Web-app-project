@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import CommentSection from "../commentComponent/commentSection"; // Import the CommentSection component
+// import CommentSection from "../commentComponent/commentSection"; // Import the CommentSection component
 import '../../stylesheets/Chapter.css';
 
 function Chapter() {
@@ -87,7 +87,7 @@ function Chapter() {
                     Next Chapter
                 </button>
             </div>
-            <CommentSection chapterId={chapter._id} />
+            {/* <CommentSection chapterId={chapter._id} /> */}
         </div>
     );
 }

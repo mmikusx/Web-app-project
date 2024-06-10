@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../stylesheets/CommentSection.css";
 
-const CommentSection = ({ chapterId }) => {
+const CommentSection = ({ bookId }) => {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const [error, setError] = useState("");
@@ -15,7 +15,7 @@ const CommentSection = ({ chapterId }) => {
 
         const fetchComments = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/chapters/${chapterId}/comments`);
+                const response = await axios.get(`http://localhost:3000/books/${bookId}/comments`);
                 setComments(response.data);
             } catch (error) {
                 setError(error.response?.data || "An error occurred during fetching comments");
@@ -23,7 +23,7 @@ const CommentSection = ({ chapterId }) => {
         };
 
         fetchComments();
-    }, [chapterId]);
+    }, [bookId]);
 
     const handleCommentChange = (event) => {
         setNewComment(event.target.value);
@@ -32,8 +32,8 @@ const CommentSection = ({ chapterId }) => {
     const handleCommentSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/comments', {
-                chapter_id: chapterId,
+            const response = await axios.post(`http://localhost:3000/books/${bookId}/comments`, {
+                book_id: bookId,
                 user_id: userId, // use actual user ID from localStorage
                 content: newComment
             });
