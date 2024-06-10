@@ -34,6 +34,18 @@
 
 .book-item h3 {
     margin: 0;
+    font-size: 1.25rem;
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.book-item h3 a {
+    color: #ff9800;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.book-item h3 a:hover {
     color: #333;
 }
 
@@ -44,4 +56,30 @@
 
 .book-item strong {
     color: #333;
+}
+
+.chapters-button-container {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.chapters-button-container button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.chapters-button-container button:hover {
+    background-color: #e68a00;
+    transform: scale(1.05);
+}
+
+.chapters-button-container button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }

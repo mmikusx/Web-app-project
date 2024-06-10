@@ -1,6 +1,7 @@
 // CommentSection.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../../stylesheets/CommentSection.css";
 
 const CommentSection = ({ chapterId }) => {
     const [comments, setComments] = useState([]);
