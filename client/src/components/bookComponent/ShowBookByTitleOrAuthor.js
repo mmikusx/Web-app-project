@@ -1,35 +1,37 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import '../../stylesheets/Books.css';
-import CategoryFilter from "./CategoryFilter";
-import TitleOrAuthorFilter from "./TitleOrAuthorFilter";
 
-function Books() {
+function SearchResults() {
+    const { query } = useParams();
     const [books, setBooks] = useState([]);
     const [error, setError] = useState("");
-    const filterRef = useRef();
-    
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/books');
-                console.log("Books fetched successfully");
+                const response = await axios.get(`http://localhost:3000/books/search/${query}`);
                 setBooks(response.data);
+                setLoading(false);
             } catch (error) {
                 setError(error.response?.data || "An error occurred during fetching books");
                 alert(error.response?.data || "An error occurred during fetching books");
+                setLoading(false);
             }
         };
 
         fetchBooks();
-    }, []);
+    }, [query]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="books-container">
-            <h1>Books</h1>
-            <CategoryFilter ref={filterRef} />
-            <TitleOrAuthorFilter />
+            <h1>Search Results</h1>
             <ul className="books-list">
                 {books.map(book => (
                     <li key={book._id} className="book-item">
@@ -45,4 +47,4 @@ function Books() {
     );
 };
 
-export default Books;
+export default SearchResults;

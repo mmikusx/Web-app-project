@@ -10,6 +10,7 @@ import BooksByCategory from './components/bookComponent/ShowBooksByCategory';
 import Chapter from './components/chapterComponent/ShowChapter';
 import ChaptersList from './components/chapterComponent/ChapterList';
 import UserBooks from './components/bookComponent/ShowUserBooks';
+import SearchResults from './components/bookComponent/ShowBookByTitleOrAuthor';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/books" element={<Books />} />
           <Route path="/books/:id" element={<Book />} />
           <Route path="/books/category/:category" element={<BooksByCategory />} />
+          <Route path="/books/search/:query" element={<SearchResults />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/books/:bookId/:chapterId" element={<Chapter />} />
