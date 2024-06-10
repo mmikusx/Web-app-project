@@ -5,7 +5,7 @@ exports.getAllBooks = async () => {
 }
 
 exports.getBookById = async (id) => {
-    return await Book.findById(id);
+    return await Book.findById(id).populate('comments');
 }
 
 exports.createBook = async (bookData) => {
