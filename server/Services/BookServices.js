@@ -43,5 +43,5 @@ exports.getBooksByUserId = async (userId) => {
 }
 
 exports.incrementVisits = async (bookId) => {
-    return await Book.findByIdAndUpdate(bookId, { $inc: { visits: 1 } }, { new: true });
+    return await Book.findByIdAndUpdate(bookId, { $inc: { visits: 0.5 } }, { new: true });
 };

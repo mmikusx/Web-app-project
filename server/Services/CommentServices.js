@@ -1,11 +1,14 @@
 const Comment = require('../Models/Comment');
 
-exports.getCommentsByChapterId = async (chapterId) => {
-    return await Comment.find({ chapter_id: chapterId });
+exports.getCommentsByBookId = async (bookId) => {
+    return await Comment.find({ bookId: bookId });
 }
 
-exports.createComment = async (commentData) => {
-    const comment = new Comment(commentData);
+exports.createComment = async (commentData, bookId) => {
+    const comment = new Comment({
+        ...commentData,
+        book_id: bookId
+    });
     return await comment.save();
 }
 
