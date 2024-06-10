@@ -14,7 +14,6 @@ function Book() {
         const fetchBook = async () => {
             try {
                 const response = await axios.get(`http://localhost:3000/books/${id}`);
-                console.log(response.data);
                 setBook(response.data);
                 setLoading(false);
             } catch (error) {
@@ -39,17 +38,21 @@ function Book() {
         <div className="book-container">
             <div className="book-detail-container">
                 <div className="book-detail-content">
-                    <h3>{book.title}</h3>
-                    <p><strong>Author:</strong>{book.author}</p>
-                    <p><strong>Description:</strong>{book.description}</p>
-                    <p><strong>Categories:</strong>{book.categories.join(", ")}</p>
-                    <p><strong>Visits:</strong>{book.visits}</p>
-                    <p><strong>Reviews:</strong> {book.total_reviews}</p>
-                    <p><strong>Rating:</strong> {book.average_rating}</p>
-                    <p><strong>Chapter Number:</strong> {book.chapterNumber}</p>
+                    <div className="book-detail-image">
+                        <img src={process.env.PUBLIC_URL + book.cover_img_ref.substring(6)} alt={book.title} />
+                    </div>
+                    <div className="book-detail-short">
+                        <h3>{book.title}</h3>
+                        <p><strong>Author:</strong> {book.author}</p>
+                        <p><strong>Categories:</strong> {book.categories.join(", ")}</p>
+                        <p><strong>Visits:</strong> {book.visits}</p>
+                        <p><strong>Reviews:</strong> {book.total_reviews}</p>
+                        <p><strong>Rating:</strong> {book.average_rating}</p>
+                        <p><strong>Chapters:</strong> {book.chapterNumber}</p>
+                    </div>
                 </div>
-                <div className="book-detail-image">
-                    <img src={require("/public/img-global/" + book.title + ".jpg")} alt={book.title} />
+                <div className="book-detail-summary">
+                    <p><strong>Description:</strong><p>{book.description}</p></p>
                 </div>
             </div>
             <div className="chapters-button-container">

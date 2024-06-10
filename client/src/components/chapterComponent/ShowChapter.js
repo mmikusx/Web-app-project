@@ -17,6 +17,7 @@ function Chapter() {
         const fetchChapter = async () => {
             try {
                 const response = await axios.get(`http://localhost:3000/chapters/${chapterId}`);
+                console.log('i fire once');
                 setChapter(response.data);
                 const chaptersResponse = await axios.get(`http://localhost:3000/books/${bookId}/chapters`);
                 setChapters(chaptersResponse.data.sort((a, b) => a.chapter_id - b.chapter_id));
