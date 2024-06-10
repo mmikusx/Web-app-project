@@ -7,6 +7,7 @@ exports.books = async (req, res) => {
 
 exports.show_book = async (req, res) => {
     const book = await BookServices.getBookById(req.params.id);
+    await BookServices.incrementVisits(req.params.id);
     return res.json(book);
 }
 
