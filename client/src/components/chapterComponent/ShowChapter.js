@@ -9,6 +9,7 @@ function Chapter() {
     const { bookId, chapterId } = useParams();
     const navigate = useNavigate();
     const [chapter, setChapter] = useState(null);
+    const [chapters, setChapters] = useState([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
 
@@ -17,6 +18,8 @@ function Chapter() {
             try {
                 const response = await axios.get(`http://localhost:3000/chapters/${chapterId}`);
                 setChapter(response.data);
+                const chaptersResponse = await axios.get(`http://localhost:3000/books/${bookId}/chapters`);
+                setChapters(chaptersResponse.data.sort((a, b) => a.chapter_id - b.chapter_id));
                 setLoading(false);
             } catch (error) {
                 setError(error.response?.data || "An error occurred during fetching chapter");
@@ -29,12 +32,16 @@ function Chapter() {
     }, [bookId, chapterId]);
 
     const goToNextChapter = () => {
-        navigate(`/books/${bookId}/${parseInt(chapterId) + 1}`);
+        const currentInd = chapters.findIndex(chap => chap._id === chapterId);
+        if(currentInd < chapters.length - 1) {
+            navigate(`/books/${bookId}/${chapters[currentInd + 1]._id}`);
+        }
     };
 
     const goToPreviousChapter = () => {
-        if (parseInt(chapterId) > 1) {
-            navigate(`/books/${bookId}/${parseInt(chapterId) - 1}`);
+        const currentInd = chapters.findIndex(chap => chap._id === chapterId);
+        if (currentInd > 0) {
+            navigate(`/books/${bookId}/${chapters[currentInd - 1]._id}`);
         }
     };
 
@@ -46,12 +53,22 @@ function Chapter() {
         return <div>{error}</div>;
     }
 
+    const currentInd = chapters.findIndex(chap => chap._id === chapterId);
+
     return (
         <div className="chapter-container">
             <h3>Chapter {chapter.chapter_id}</h3>
             <div className="chapter-navigation">
-                <button onClick={goToPreviousChapter} disabled={parseInt(chapterId) <= 1}>Previous Chapter</button>
-                <button onClick={goToNextChapter}>Next Chapter</button>
+                <button 
+                    onClick={goToPreviousChapter} 
+                    style={{ visibility: currentInd > 0 ? 'visible' : 'hidden' }}>
+                    Previous Chapter
+                </button>
+                <button 
+                    onClick={goToNextChapter} 
+                    style={{ visibility: currentInd < chapters.length - 1 ? 'visible' : 'hidden' }}>
+                    Next Chapter
+                </button>
             </div>
             <div className="chapter-content">
                 {chapter.content.split('\n').map((paragraph, index) => (
@@ -59,8 +76,16 @@ function Chapter() {
                 ))}
             </div>
             <div className="chapter-navigation">
-                <button onClick={goToPreviousChapter} disabled={parseInt(chapterId) <= 1}>Previous Chapter</button>
-                <button onClick={goToNextChapter}>Next Chapter</button>
+                <button 
+                    onClick={goToPreviousChapter} 
+                    style={{ visibility: currentInd > 0 ? 'visible' : 'hidden' }}>
+                    Previous Chapter
+                </button>
+                <button 
+                    onClick={goToNextChapter} 
+                    style={{ visibility: currentInd < chapters.length - 1 ? 'visible' : 'hidden' }}>
+                    Next Chapter
+                </button>
             </div>
             <CommentSection chapterId={chapter._id} />
         </div>
