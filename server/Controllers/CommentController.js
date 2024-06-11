@@ -14,3 +14,12 @@ exports.delete = async (req, res) => {
     await CommentServices.deleteComment(req.params.id);
     return res.json({ message: 'Comment deleted' });
 }
+
+exports.getAll = async (req, res) => {
+    try {
+        const comments = await CommentServices.getAllComments();
+        return res.json(comments);
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+}
