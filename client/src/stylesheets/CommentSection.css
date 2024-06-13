@@ -90,3 +90,18 @@
 .login-prompt a:hover {
     text-decoration: underline;
 }
+
+.comment-item button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: rgba(234, 234, 234, 0.69);
+    color: red;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-item button:hover {
+    background-color: darkgray;
+}
+

@@ -44,6 +44,15 @@ const CommentSection = ({ bookId }) => {
         }
     };
 
+    const handleCommentDelete = async (commentId) => {
+        try {
+            await axios.delete(`http://localhost:3000/comments/${commentId}`);
+            setComments((prevComments) => prevComments.filter((comment) => comment._id !== commentId));
+        } catch (error) {
+            alert(error.response?.data || "An error occurred while deleting the comment");
+        }
+    };
+
     if (!userId) {
         return (
             <div className="login-prompt">
@@ -64,6 +73,9 @@ const CommentSection = ({ bookId }) => {
                     <li key={comment._id} className="comment-item">
                         <p>{comment.content}</p>
                         <p><strong>Author:</strong> {comment.user_id}</p>
+                        {comment.user_id === userId && (
+                            <button onClick={() => handleCommentDelete(comment._id)}>Delete</button>
+                        )}
                     </li>
                 ))}
             </ul>
