@@ -39,11 +39,11 @@ function ChaptersList() {
             <h3>Chapters</h3>
             <ul className="chapters-list">
                 {chapters.map((chapter) => (
-                    <li key={chapter.chapter_id} className="chapter-item">
-                        <Link to={`/books/${chapter.book_id}/${chapter._id}`}>
-                            <h4>Chapter {chapter.chapter_id}</h4>
-                        </Link>
-                    </li>
+                    <Link to={`/books/${chapter.book_id}/${chapter._id}`}>
+                        <li key={chapter.chapter_id} className="chapter-item">
+                                <h4>Chapter {chapter.chapter_id}</h4>
+                        </li>
+                    </Link>
                 ))}
             </ul>
         </div>

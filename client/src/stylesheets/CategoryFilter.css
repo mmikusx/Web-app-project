@@ -33,3 +33,15 @@
 .filter-container select option {
     padding: 10px;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .filter-container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .filter-container select {
+        width: 90%;
+    }
+}

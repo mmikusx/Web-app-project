@@ -48,3 +48,26 @@
 .book-detail-short {
     margin-top: auto;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .book-detail-container {
+        width: 90%;
+        padding: 1rem;
+        padding-left: 1rem;
+    }
+
+    .book-detail-content {
+        flex-direction: column;
+    }
+
+    .book-detail-image {
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 1rem;
+    }
+
+    .book-detail-summary {
+        margin: 1rem 0;
+    }
+}

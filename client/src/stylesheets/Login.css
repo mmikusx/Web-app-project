@@ -51,4 +51,14 @@
     background-color: #ff9800;
 }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+    .loginForm {
+        width: 90%;
+        padding: 1rem;
+    }
 
+    .loginForm input {
+        width: calc(100% - 10px);
+    }
+}

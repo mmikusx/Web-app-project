@@ -38,8 +38,8 @@ function SearchResults() {
                         <h3>
                             <Link to={`/books/${book._id}`}>{book.title}</Link>
                         </h3>
-                        <p><strong>Author:</strong>{book.author}</p>
-                        <p><strong>Categories:</strong>{book.categories.join(", ")}</p>
+                        <p><strong>Author:</strong> {book.author}</p>
+                        <p><strong>Categories:</strong> {book.categories.join(", ")}</p>
                     </li>
                 ))}
             </ul>

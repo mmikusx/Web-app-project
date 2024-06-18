@@ -46,3 +46,24 @@
 .back-button:hover {
     background-color: #ff9800;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .books-container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .book-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .book-item p {
+        font-size: 0.9rem;
+    }
+
+    .back-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}

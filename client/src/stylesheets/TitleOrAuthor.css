@@ -31,3 +31,22 @@
 .search-button:hover {
     background-color: #e68900;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .search-input {
+        width: 90%;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .search-button {
+        width: 90%;
+        padding: 0.5rem;
+    }
+}

@@ -105,3 +105,18 @@
     background-color: darkgray;
 }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+    .comments-container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .comment-item {
+        padding: 0.5rem;
+    }
+
+    .comment-form button {
+        width: 100%;
+    }
+}

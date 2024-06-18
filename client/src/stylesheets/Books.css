@@ -83,3 +83,24 @@
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .books-container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .book-item {
+        padding: 0.5rem;
+    }
+
+    .book-item h3 {
+        font-size: 1rem;
+    }
+
+    .chapters-button-container button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
