@@ -1,5 +1,5 @@
 const Chapter = require('../Models/Chapter');
-const updateBook = require('./BookServices'); //jak ktoś ma lepszy pomysł to śmiało
+const { updateBook } = require('./BookServices'); //jak ktoś ma lepszy pomysł to śmiało
 
 exports.getChaptersByBookId = async (bookId) => {
     return await Chapter.find(

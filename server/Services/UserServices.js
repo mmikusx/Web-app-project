@@ -23,8 +23,3 @@ exports.loginUser = async (username, password) => {
     const token = jwt.sign({ _id: user._id }, 'SECRET_KEY');
     return {token, userId: user._id};
 };
-
-exports.getUserBooks = async (id) => {
-    const books = await User.findById(id, { 'books': 1 });
-    return books;
-};

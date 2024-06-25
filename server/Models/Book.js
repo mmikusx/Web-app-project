@@ -8,8 +8,8 @@ const Schema = mongoose.Schema;
     categories: [String],
     visits: Number,
     uploaded_by: { type: Schema.Types.ObjectId, ref: 'User' },
-    cover_image: String, // URL do obrazka w folderze
-    chapterNumber: Number,
+    cover_img_ref: String, // URL do obrazka w folderze
+    chapterNumber: { type: Number, default: 0 },
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }]
 });
 

@@ -278,7 +278,7 @@ const goToNextChapter = () => {
     };
 ```
 
-Plik **commenSection.js** z katalogu **./client/commentComponent** umożliwia użytkownikom dodawanie i usuwanie komentarzy do książki. Zalogowany użytkownik może usuwać jedynie swoje komentarze.  
+Plik **commentSection.js** z katalogu **./client/commentComponent** umożliwia użytkownikom dodawanie i usuwanie komentarzy do książki. Zalogowany użytkownik może usuwać jedynie swoje komentarze.  
 
 ```
 const handleCommentSubmit = async (event) => {
@@ -306,7 +306,7 @@ const handleCommentSubmit = async (event) => {
     };
 ```
 
-Komponent **userComponent** umożliwia użytkownikom między innymi logowanie się do aplikacji. W pliku **Login.j** wprowadzone dane logowania przechowywane są w stanie komponentu (username, password). Jeśli logowanie się powiedzie, przechowywany jest token uwierzytelniający i identyfikator użytkownika w localStorage oraz wyświetlany jest komunikat o powodzeniu.
+Komponent **userComponent** umożliwia użytkownikom między innymi logowanie się do aplikacji. W pliku **Login.js** wprowadzone dane logowania przechowywane są w stanie komponentu (username, password). Jeśli logowanie się powiedzie, przechowywany jest token uwierzytelniający i identyfikator użytkownika w localStorage oraz wyświetlany jest komunikat o powodzeniu.
 
 ```
 const handleLogin = async () => {

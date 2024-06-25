@@ -39,7 +39,9 @@ function Book() {
             <div className="book-detail-container">
                 <div className="book-detail-content">
                     <div className="book-detail-image">
-                        <img src={process.env.PUBLIC_URL + book.cover_img_ref.substring(6)} alt={book.title} />
+                        {book.cover_img_ref && (
+                            <img src={process.env.PUBLIC_URL + book.cover_img_ref.substring(6)} alt={book.title} />
+                        )}
                     </div>
                     <div className="book-detail-short">
                         <h3>{book.title}</h3>
@@ -52,7 +54,8 @@ function Book() {
                     </div>
                 </div>
                 <div className="book-detail-summary">
-                    <p><strong>Description:</strong><p>{book.description}</p></p>
+                    <p><strong>Description:</strong></p>
+                    <p>{book.description}</p>
                 </div>
             </div>
             <div className="chapters-button-container">

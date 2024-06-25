@@ -1,4 +1,6 @@
 const Book = require('../Models/Book');
+const User = require('../Models/User');
+const Chapter = require('../Models/Chapter');
 
 exports.getAllBooks = async () => {
     return await Book.find({});
@@ -18,7 +20,14 @@ exports.updateBook = async (id, BookData) => {
 }
 
 exports.deleteBook = async (id) => {
-    return await Book.findByIdAndDelete(id);
+    // Delete the book
+    await Book.findByIdAndDelete(id);
+
+    // Delete all chapters associated with the book
+    await Chapter.deleteMany({ book_id: id });
+
+    // Update the User books array
+    await User.updateMany({ books: id }, { $pull: { books: id } });
 }
 
 exports.getPopularBooks = async () => {
@@ -45,3 +54,7 @@ exports.getBooksByUserId = async (userId) => {
 exports.incrementVisits = async (bookId) => {
     return await Book.findByIdAndUpdate(bookId, { $inc: { visits: 0.5 } }, { new: true });
 };
+
+exports.appendBookToUser = async (book) => {
+    return await User.findByIdAndUpdate(book.uploaded_by, { $push: { books: book._id } });
+}

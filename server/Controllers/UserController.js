@@ -23,8 +23,3 @@ exports.login = async (req, res) => {
     }
     res.send(result);
 };
-
-exports.userBooks = async (req, res) => { 
-    const books = await UserService.getUserBooks(req.params.id);
-    res.send(books);
-};

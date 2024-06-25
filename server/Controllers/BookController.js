@@ -13,6 +13,7 @@ exports.show_book = async (req, res) => {
 
 exports.create = async (req, res) => {
     const book = await BookServices.createBook(req.body);
+    await BookServices.appendBookToUser(book);
     return res.json(book);
 }
 
