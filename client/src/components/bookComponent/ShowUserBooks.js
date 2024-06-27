@@ -75,17 +75,11 @@ function UserBooks() {
         return <div>{error}</div>;
     }
 
-    if (!booksArr || booksArr.length === 0) {
-        return <div>No books found for this user.</div>;
-    }
-
-    return (
-        <div className="books-container">
-            <button onClick={handleAddBookClick}>Add Book</button>
-            {showAddBook && <AddBook userId={userId} onClose={handleCloseAddBook} />}
-            {showAddChapter.show && (
-                <AddChapter bookId={showAddChapter.bookId} chapterNumber={showAddChapter.chapterNumber} onClose={handleCloseAddChapter} />
-            )}
+    const renderBooks = () => {
+        if (!booksArr || booksArr.length === 0) {
+            return <div>No books found for this user.</div>;
+        }
+        return (
             <div className="books-list">
                 {booksArr.map(book => (
                     <li key={book._id} className="book-item">
@@ -98,8 +92,19 @@ function UserBooks() {
                     </li>
                 ))}
             </div>
+        );
+    };
+
+    return (
+        <div className="books-container">
+            <button onClick={handleAddBookClick}>Add Book</button>
+            {showAddBook && <AddBook userId={userId} onClose={handleCloseAddBook} />}
+            {showAddChapter.show && (
+                <AddChapter bookId={showAddChapter.bookId} chapterNumber={showAddChapter.chapterNumber} onClose={handleCloseAddChapter} />
+            )}
+            {renderBooks()}
         </div>
-    );
+    );    
 };
 
 export default UserBooks;
