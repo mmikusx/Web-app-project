@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../../stylesheets/AddChapter.css';
 
 function AddChapter({ bookId, chapterNumber, onClose }) {
     const [chapterContent, setChapterContent] = useState('');

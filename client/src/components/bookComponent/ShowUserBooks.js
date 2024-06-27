@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import '../../stylesheets/BookById.css';
 import AddBook from './AddBook';
-import AddChapter from './AddChapter'; // Import AddChapter component
+import AddChapter from './AddChapter';
 
 function UserBooks() {
     const [userId, setUserId] = useState(null);
     const [booksArr, setBooks] = useState(null);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
-    const [showAddBook, setShowAddBook] = useState(false);
+    const [showAddBookForm, setShowAddBookForm] = useState(false);
     const [showAddChapter, setShowAddChapter] = useState({ show: false, bookId: null, chapterNumber: null });
 
     useEffect(() => {
@@ -37,11 +37,11 @@ function UserBooks() {
     };
 
     const handleAddBookClick = () => {
-        setShowAddBook(true);
+        setShowAddBookForm(true);
     };
 
     const handleCloseAddBook = () => {
-        setShowAddBook(false);
+        setShowAddBookForm(false);
         fetchBooks();
     };
 
@@ -62,6 +62,8 @@ function UserBooks() {
             console.error("Error deleting book", error);
         }
     };
+
+    const isAnyFormOpen = showAddBookForm || showAddChapter.show;
 
     if (loading) {
         return <div>Loading...</div>;
@@ -87,7 +89,9 @@ function UserBooks() {
                             <Link to={`/books/${book._id}`}>{book.title}</Link>
                         </h3>
                         <p><strong>Author:</strong> {book.author}</p>
-                        <button onClick={() => handleAddChapterClick(book._id, book.chapterNumber)}>Add Chapter</button>
+                        {!showAddChapter.show && (
+                            <button onClick={() => handleAddChapterClick(book._id, book.chapterNumber)}>Add Chapter</button>
+                        )}
                         <button onClick={() => handleDeleteBook(book._id)}>Delete Book</button>
                     </li>
                 ))}
@@ -97,8 +101,8 @@ function UserBooks() {
 
     return (
         <div className="books-container">
-            <button onClick={handleAddBookClick}>Add Book</button>
-            {showAddBook && <AddBook userId={userId} onClose={handleCloseAddBook} />}
+            {!isAnyFormOpen && <button onClick={handleAddBookClick}>Add Book</button>}
+            {showAddBookForm && <AddBook userId={userId} onClose={handleCloseAddBook} />}
             {showAddChapter.show && (
                 <AddChapter bookId={showAddChapter.bookId} chapterNumber={showAddChapter.chapterNumber} onClose={handleCloseAddChapter} />
             )}

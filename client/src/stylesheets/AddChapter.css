@@ -1,4 +1,4 @@
-.add-book-form {
+.add-chapter-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,35 +11,37 @@
     margin: auto;
 }
 
-.add-book-form form {
+.add-chapter-form form {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.add-book-form label {
+.add-chapter-form label {
     margin-bottom: 1rem;
     font-size: 1rem;
     color: #333;
+    text-align: center;
 }
 
-.add-book-form input[type="text"],
-.add-book-form textarea {
+.add-chapter-form textarea {
     width: 100%;
+    min-height: 200px;
     padding: 0.5rem;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
+    resize: vertical;
     font-size: 1rem;
 }
 
-.add-book-form textarea {
-    resize: vertical;
+.add-chapter-form textarea:focus {
+    outline: none;
+    border-color: #ff9800;
 }
 
-.add-book-form button {
+.add-chapter-form button {
     background-color: #ff9800;
     color: white;
     border: none;
@@ -51,42 +53,46 @@
     margin-top: 1rem;
 }
 
-.add-book-form button:hover {
+.add-chapter-form button:hover {
     background-color: #e68a00;
     transform: scale(1.05);
 }
 
-.add-book-form button:focus {
+.add-chapter-form button:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.add-book-form button[type="button"] {
+.add-chapter-form button[type="button"] {
     background-color: #ccc;
-    margin-left: 0.5rem;
+    margin-top: 1rem;
 }
 
-.add-book-form button[type="button"]:hover {
+.add-chapter-form button[type="button"]:hover {
     background-color: #999;
     transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
-    .add-book-form {
+    .add-chapter-form {
         padding: 1rem;
     }
 
-    .add-book-form label {
+    .add-chapter-form label {
         font-size: 0.9rem;
     }
 
-    .add-book-form input[type="text"],
-    .add-book-form textarea {
+    .add-chapter-form textarea {
+        min-height: 150px;
         font-size: 0.9rem;
     }
 
-    .add-book-form button {
+    .add-chapter-form button {
         font-size: 0.9rem;
         padding: 8px 16px;
+    }
+
+    .add-chapter-form button[type="button"] {
+        margin-top: 1rem;
     }
 }
