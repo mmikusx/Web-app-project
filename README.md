@@ -1,3 +1,4 @@
+Dominika Głowacka, Jakub Samel, Mikołaj Szymański
 
 # Identyfikacja zagadnienia biznesowego (problemu)
 
