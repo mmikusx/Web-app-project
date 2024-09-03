@@ -68,10 +68,6 @@ Aplikacja webowa do wyświetlania oraz zarządzania książkami i komentarzami, 
 
 Aplikacja webowa zapewnia zarządzanie użytkownikami, książkami, rozdziałami oraz komentarzami, wykorzystując React do interfejsu użytkownika i Node.js/Express do logiki biznesowej oraz MongoDB do przechowywania danych.
 
-# Analiza zagadnienia i jego modelowanie (DO POPRAWY TO TYLKO TAKIE WSTEPNE POMOCNICZE ZEBY ROZWINAC)
-
-Projekt składa się z aplikacji webowej, która umożliwia zarządzanie książkami i komentarzami. Aplikacja została zbudowana z wykorzystaniem technologii JavaScript, React na froncie i Node.js/Express na backendzie. Dane są przechowywane w bazie danych MongoDB.
-
 ## Metody obiektowe
 
 Aplikacja składa się z kilku głównych komponentów:
